@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo/seo"
-import Hero from "../components/index/Hero"
+import Athens from "../components/index/Athens"
+import Posts from "../components/index/Posts"
 import Quote from "../components/index/Quote"
 import Explore from "../components/index/Explore"
 import Join from "../components/index/Join"
@@ -31,8 +32,8 @@ const index = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Hero viewportWidth={width} />
-
+      <Athens />
+      <Posts viewportWidth={width} />
       <Quote />
       <Explore />
       <Join />

@@ -25,6 +25,9 @@ const CtoA = styled.div`
     margin: auto;
     font-weight: 500;
   }
+  @media screen and (min-width: 550px) {
+    width: 70%;
+  }
 `
 
 export default Pitch
