@@ -26,7 +26,7 @@ const useWindowDimension = () => {
   return windowDimensions
 }
 
-const index = () => {
+const index = ({ data }) => {
   const width = useWindowDimension()
 
   return (

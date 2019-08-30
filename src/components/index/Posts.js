@@ -3,12 +3,13 @@ import { RichText } from "prismic-reactjs"
 import { StaticQuery, graphql } from "gatsby"
 
 const articlesQuery = graphql`
-  query {
+  {
     prismic {
-      allArticless(uid: "prometheus-prismic-testing-1") {
+      allArticles {
         edges {
           node {
-            article_title
+            title
+            text
           }
         }
       }
@@ -16,15 +17,20 @@ const articlesQuery = graphql`
   }
 `
 
-const Posts = () => (
-  // const doc = data.prismic.allArticless.edges.slice(0, 1).pop()
-  // if (!doc) return null
-  <StaticQuery
-    query={articlesQuery}
-    render={data => (
-      <h1>{RichText.render(data.prismic.edges.node.article_title)}</h1>
-    )}
-  />
+const Posts = ({ doc }) => (
+  <div>
+    <StaticQuery
+      query={articlesQuery}
+      render={data =>
+        data.prismic.allArticles.edges.map((article, index) => (
+          <h3 key={`ArticleTitle:${index}`}>
+            Hello
+            <RichText render={article.title} />
+          </h3>
+        ))
+      }
+    />
+  </div>
 )
 
 export default Posts
